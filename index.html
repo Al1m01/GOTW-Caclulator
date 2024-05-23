@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health and MP Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Health and MP Calculator</h1>
+    <div>
+        <label for="healthPoints">Enter Health Points:</label>
+        <input type="number" id="healthPoints" placeholder="Health Points">
+    </div>
+    <div>
+        <label for="mpPoints">Enter MP Points:</label>
+        <input type="number" id="mpPoints" placeholder="MP Points">
+    </div>
+    <button onclick="calculate()">Calculate</button>
+    <div class="result">
+        <p id="healthValue"></p>
+        <p id="mpValue"></p>
+        <p id="totalValue"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            let healthPoints = parseInt(document.getElementById('healthPoints').value);
+            let mpPoints = parseInt(document.getElementById('mpPoints').value);
+
+            if (isNaN(healthPoints) || isNaN(mpPoints)) {
+                alert("Please enter valid numbers for Health Points and MP Points.");
+                return;
+            }
+
+            let healthValue = healthPoints * 50;
+            let mpValue = mpPoints;
+            let totalValue = healthValue + mpValue;
+
+            document.getElementById('healthValue').innerText = "Health Value: " + healthValue;
+            document.getElementById('mpValue').innerText = "MP Value: " + mpValue;
+            document.getElementById('totalValue').innerText = "Total Value: " + totalValue;
+        }
+    </script>
+</body>
+</html>
